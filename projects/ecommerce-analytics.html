@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Customer Shopping Behavior Analysis — Vasu Arora</title>
+<meta name="description" content="E-commerce sales and customer analytics case study using Python, Pandas, SQL and Power BI.">
+<link rel="stylesheet" href="../css/main.css"><link rel="stylesheet" href="../css/responsive.css"><link rel="stylesheet" href="../css/projects.css">
+</head>
+<body class="case-study-page ecommerce-case-study">
+<a class="skip-link" href="#main-content">Skip to content</a><div id="scroll-progress" class="scroll-progress"></div>
+<header id="site-header" class="site-header"><nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+<div class="container nav-container">
+<a class="site-logo" href="../index.html">Vasu Arora<span class="logo-dot">.</span></a>
+<div id="desktop-nav" class="desktop-nav"><a class="nav-link" href="../index.html#about">About</a><a class="nav-link" href="../index.html#experience">Experience</a><a class="nav-link is-active" href="../index.html#selected-work">Work</a><a class="nav-link" href="../index.html#contact">Contact</a></div>
+<div class="nav-actions"><a class="button button-small button-outline" href="../resume/Vasu_Arora_Resume.pdf" target="_blank">Resume</a><button id="theme-toggle" class="theme-toggle" type="button" aria-label="Toggle theme"><span class="theme-icon theme-icon-light">☀</span><span class="theme-icon theme-icon-dark">☾</span></button><button id="menu-toggle" class="menu-toggle" type="button" aria-label="Open navigation"><span class="menu-line"></span><span class="menu-line"></span><span class="menu-line"></span></button></div>
+</div>
+<div id="mobile-nav" class="mobile-nav" aria-hidden="true"><a class="mobile-nav-link" href="../index.html#about">About</a><a class="mobile-nav-link" href="../index.html#experience">Experience</a><a class="mobile-nav-link" href="../index.html#selected-work">Work</a><a class="mobile-nav-link" href="../index.html#contact">Contact</a></div>
+</nav></header>
+<main id="main-content">
+
+<section class="case-hero"><div class="container">
+<div class="case-hero-top"><a class="case-back" href="../index.html#selected-work">← Back to selected work</a><span class="case-index">CASE STUDY / 02</span></div>
+<div class="case-hero-grid"><div>
+<div class="section-eyebrow"><span class="n"></span> CUSTOMER SHOPPING BEHAVIOR</div>
+<h1 class="case-title">Turning shopping transactions into customer and revenue insights.</h1>
+<p class="case-lead">An end-to-end e-commerce analytics project focused on spending patterns, customer segments, product performance, discounts, subscriptions and category revenue.</p>
+<div class="case-tags"><span>PYTHON</span><span>PANDAS</span><span>SQL</span><span>POWER BI</span></div>
+<div class="case-actions"><a class="button button-primary" href="#dashboard">EXPLORE DASHBOARD ↓</a><a class="button button-secondary" href="../index.html#selected-work">VIEW ALL WORK</a></div>
+</div><div class="case-signal"><div class="signal-kicker">ANALYSIS FLOW</div><div class="lifecycle-line"><span>TRANSACTIONS</span><i>→</i><span>CUSTOMERS</span></div><div class="lifecycle-line secondary"><span>PRODUCTS</span><i>→</i><span>DECISIONS</span></div><div class="signal-note">One dataset examined from multiple business angles.</div></div></div>
+<div class="kpi-rail"><div class="kpi-cell"><strong>3,900</strong><span>PURCHASES</span></div><div class="kpi-cell"><strong>$233K</strong><span>TOTAL REVENUE</span></div><div class="kpi-cell"><strong>$59.76</strong><span>AVG PURCHASE</span></div><div class="kpi-cell"><strong>3.75</strong><span>AVG RATING</span></div><div class="kpi-cell"><strong>27%</strong><span>SUBSCRIBED CUSTOMERS</span></div></div>
+</div></section>
+
+<section class="case-section"><div class="container"><div class="case-section-head"><span class="case-number">01</span><div><div class="section-eyebrow">BUSINESS PROBLEM</div><h2>What can customer-level transaction data tell us?</h2></div></div>
+<div class="split-copy"><div class="lead-copy"><p>The project examines how customers spend, which products and categories drive sales, and which customer behaviors are associated with stronger commercial value.</p></div><div class="copy-stack">
+<div class="data-card"><div class="data-card-top"><span>01</span><strong>SALES PERFORMANCE</strong></div><p>Analyze revenue, purchase volume and category-level performance.</p></div>
+<div class="data-card"><div class="data-card-top"><span>02</span><strong>CUSTOMER BEHAVIOR</strong></div><p>Understand subscription, repeat-purchase and demographic patterns.</p></div>
+<div class="data-card"><div class="data-card-top"><span>03</span><strong>PRODUCT DECISIONS</strong></div><p>Identify high-performing products, ratings and discount dependence.</p></div>
+</div></div></div></section>
+
+<section class="case-section case-section-soft"><div class="container"><div class="case-section-head"><span class="case-number">02</span><div><div class="section-eyebrow">DATASET</div><h2>A compact customer-level view of shopping behavior.</h2></div></div>
+<div class="dataset-stats"><div class="data-card data-card-main"><span class="accent-chip">RAW DATA</span><strong>3,900</strong><span>purchase records</span></div><div class="data-card"><strong>18</strong><span>original columns</span></div><div class="data-card"><strong>37</strong><span>missing values</span></div><div class="data-card"><strong>2</strong><span>genders represented</span></div></div>
+<div class="data-model"><div><span class="signal-kicker">CORE DIMENSIONS</span><p>Customer ID · Age · Gender · Location · Category · Item · Season · Size · Color</p></div><div><span class="signal-kicker">BEHAVIOR & COMMERCE</span><p>Purchase Amount · Rating · Subscription · Shipping · Discounts · Previous Purchases · Payment · Frequency</p></div></div>
+</div></section>
+
+<section class="case-section"><div class="container"><div class="case-section-head"><span class="case-number">03</span><div><div class="section-eyebrow">BUSINESS QUESTIONS</div><h2>The analysis was built around decisions, not just charts.</h2></div></div>
+<div class="question-grid">
+<article class="data-card"><span class="case-number">01</span><h3>Who drives revenue?</h3><p>Compare spending and revenue contribution across customer demographics and segments.</p></article>
+<article class="data-card"><span class="case-number">02</span><h3>Which products perform?</h3><p>Find top products by sales, review rating and discount dependence.</p></article>
+<article class="data-card"><span class="case-number">03</span><h3>Does subscription matter?</h3><p>Compare subscriber and non-subscriber counts, average spend and total revenue.</p></article>
+<article class="data-card"><span class="case-number">04</span><h3>How do customers repeat?</h3><p>Segment customers into new, returning and loyal groups using previous purchases.</p></article>
+</div></div></section>
+
+<section class="case-section case-section-dark"><div class="container"><div class="case-section-head"><span class="case-number">04</span><div class="light-head"><div class="section-eyebrow">DATA PREPARATION</div><h2>Python turned the raw table into an analysis-ready dataset.</h2></div></div>
+<div class="workflow-grid">
+<div class="data-card"><span class="workflow-no">01</span><strong>LOAD & EXPLORE</strong><p>Imported the CSV with Pandas and inspected structure, descriptive statistics and missing values.</p></div>
+<div class="data-card"><span class="workflow-no">02</span><strong>CLEAN & STANDARDIZE</strong><p>Filled missing review ratings using category-level medians and standardized column names.</p></div>
+<div class="data-card"><span class="workflow-no">03</span><strong>FEATURE ENGINEERING</strong><p>Created age groups and purchase-frequency days, then removed the redundant promo-code field.</p></div>
+<div class="data-card"><span class="workflow-no">04</span><strong>SQL ANALYSIS</strong><p>Loaded the cleaned data into a SQL workflow and queried customer, product and revenue patterns.</p></div>
+</div><div class="method-note"><strong>Data-quality note</strong><span>The source documentation records 37 missing values, all associated with Review Rating. The cleaning workflow imputes them using the median rating within each Category.</span></div>
+</div></section>
+
+<section class="case-section"><div class="container"><div class="case-section-head"><span class="case-number">05</span><div><div class="section-eyebrow">SQL ANALYSIS</div><h2>Queries were designed around concrete commercial questions.</h2></div></div>
+<div class="code-strip"><span>SQL PATTERNS</span><strong>GROUP BY</strong><strong>CASE</strong><strong>CTE</strong><strong>WINDOW FUNCTION</strong><strong>SUBQUERY</strong></div>
+<div class="question-grid">
+<article class="data-card"><span class="accent-chip">REVENUE</span><h3>Revenue by gender</h3><p>Grouped purchase value by gender to compare contribution to total revenue.</p><strong class="metric-highlight">$157,890 male · $75,191 female</strong></article>
+<article class="data-card"><span class="accent-chip">PRODUCTS</span><h3>Top-rated products</h3><p>Calculated average product ratings and ranked products to identify the top five.</p><strong class="metric-highlight">Gloves · 3.86 avg rating</strong></article>
+<article class="data-card"><span class="accent-chip">CUSTOMERS</span><h3>Customer segmentation</h3><p>Used previous purchases to classify customers as New, Returning or Loyal.</p><strong class="metric-highlight">3,116 loyal customers</strong></article>
+<article class="data-card"><span class="accent-chip">PRODUCT MIX</span><h3>Top products by category</h3><p>Used ROW_NUMBER() over each category to identify the top three products.</p><strong class="metric-highlight">Top 3 within each category</strong></article>
+</div></div></section>
+
+<section class="case-section case-section-soft"><div class="container"><div class="case-section-head"><span class="case-number">06</span><div><div class="section-eyebrow">CUSTOMER BEHAVIOR</div><h2>Most customers in the dataset are already repeat buyers.</h2></div></div>
+<div class="funnel-layout">
+
+  <div class="funnel-copy">
+    <p>
+      The purchase-history segmentation produces a clear
+      concentration in the Loyal segment, making repeat-customer
+      behavior an important lens for revenue and subscription patterns.
+    </p>
+
+    <div class="funnel-summary">
+      <strong>3,116 / 3,900</strong>
+      <span>customers are classified as Loyal.</span>
+    </div>
+  </div>
+
+  <div class="funnel-visual">
+    <div class="signal-kicker">REPEAT PURCHASE PROFILE</div>
+
+    <div class="funnel-bars">
+      <div class="funnel-step">
+        <strong>83</strong>
+        <span>NEW</span>
+        <small>Previous purchases = 1</small>
+      </div>
+
+      <div class="funnel-step">
+        <strong>701</strong>
+        <span>RETURNING</span>
+        <small>Previous purchases = 2–10</small>
+      </div>
+
+      <div class="funnel-step narrow">
+        <strong>3,116</strong>
+        <span>LOYAL</span>
+        <small>Previous purchases &gt; 10</small>
+      </div>
+    </div>
+
+    <p class="funnel-definition">
+      “Loyal” is defined in the project's SQL segmentation
+      as more than 10 previous purchases.
+    </p>
+  </div>
+
+</div>
+</div></section>
+
+<section class="case-section"><div class="container"><div class="case-section-head"><span class="case-number">07</span><div><div class="section-eyebrow">COMMERCIAL ANALYSIS</div><h2>Revenue concentration, subscription behavior and product economics.</h2></div></div>
+<div class="insight-grid">
+<article class="insight-card featured"><span class="accent-chip">CATEGORY</span><strong>$104,264</strong><h3>Clothing revenue</h3><p>Clothing contributes the largest category revenue, followed by Accessories at $74,200.</p></article>
+<article class="insight-card"><span class="accent-chip">AGE GROUP</span><strong>$62,143</strong><h3>Young revenue</h3><p>The Young group contributes the highest revenue among the four age groups, while the groups remain relatively close overall.</p></article>
+<article class="insight-card"><span class="accent-chip">SUBSCRIPTION</span><strong>$62,645</strong><h3>Subscriber revenue</h3><p>1,053 customers are subscribers. Non-subscribers contribute $170,436, about 73% of total revenue.</p></article>
+<article class="insight-card"><span class="accent-chip">SHIPPING</span><strong>$60.48</strong><h3>Express average spend</h3><p>Express-shipping purchases average $60.48 versus $58.46 for Standard shipping.</p></article>
+</div></div></section>
+
+<section class="case-section case-section-soft"><div class="container"><div class="case-section-head"><span class="case-number">08</span><div><div class="section-eyebrow">PRODUCT & DISCOUNT ANALYSIS</div><h2>Product performance was evaluated beyond raw sales.</h2></div></div>
+<div class="question-grid">
+<article class="data-card"><span class="accent-chip">RATING</span><h3>Top-rated products</h3><p>Gloves, Sandals, Boots, Hat and Skirt form the top five by average review rating.</p><strong class="metric-highlight">3.86 → 3.78</strong></article>
+<article class="data-card"><span class="accent-chip">DISCOUNT</span><h3>Discount dependence</h3><p>Hat has the highest discount rate, followed by Sneakers, Coat, Sweater and Pants.</p><strong class="metric-highlight">Hat · 50.00%</strong></article>
+<article class="data-card"><span class="accent-chip">CATEGORY</span><h3>Category leaders</h3><p>Top products were ranked inside each category using a window function rather than one global ranking.</p><strong class="metric-highlight">ROW_NUMBER() by category</strong></article>
+<article class="data-card"><span class="accent-chip">CUSTOMER VALUE</span><h3>Discounted high-spenders</h3><p>The project identified 839 high-spenders whose discounted purchases exceeded the overall average purchase amount.</p><strong class="metric-highlight">839 customers</strong></article>
+</div></div></section>
+
+<section id="dashboard" class="case-section case-section-dark"><div class="container"><div class="case-section-head"><span class="case-number">09</span><div class="light-head"><div class="section-eyebrow">POWER BI DASHBOARD</div><h2>One view to explore customer, product and category behavior.</h2></div></div>
+<div class="dashboard-intro"><div><p>The Power BI dashboard combines KPI cards, subscription filters, category analysis, age-group comparisons and customer behavior into a single interactive view.</p></div><div class="dashboard-meta"><span>3.9K CUSTOMERS</span><span>$59.76 AVG PURCHASE</span><span>3.75 AVG RATING</span></div></div>
+<figure class="dashboard-frame" data-lightbox-src="../assets/projects/ecommerce-analytics/customer-behavior-dashboard.png"><img src="../assets/projects/ecommerce-analytics/customer-behavior-dashboard.png" alt="Customer Behaviour Dashboard" loading="lazy"><figcaption class="dashboard-caption"><span>Customer Behaviour Dashboard</span><span>Click to expand ↗</span></figcaption></figure>
+<div class="dashboard-grid"><div class="dashboard-stage"><span class="signal-kicker">FILTERS</span><p>Subscription Status · Gender · Category · Shipping Type</p></div><div class="dashboard-stage"><span class="signal-kicker">VISUALS</span><p>Revenue by Category · Sales by Category · Revenue by Age Group · Sales by Age Group · Subscription Mix</p></div></div>
+</div></section>
+
+<section class="case-section"><div class="container"><div class="case-section-head"><span class="case-number">10</span><div><div class="section-eyebrow">KEY FINDINGS</div><h2>What the analysis surfaced.</h2></div></div>
+<div class="insight-grid">
+<article class="insight-card featured"><span class="accent-chip">REVENUE</span><strong>2.1×</strong><h3>Male revenue contribution</h3><p>Male customers generated $157,890 versus $75,191 from female customers.</p></article>
+<article class="insight-card"><span class="accent-chip">CUSTOMER BASE</span><strong>79.9%</strong><h3>Loyal segment</h3><p>3,116 of 3,900 customers fall into the Loyal segment under the project's purchase-history definition.</p></article>
+<article class="insight-card"><span class="accent-chip">SUBSCRIPTION</span><strong>73%</strong><h3>Revenue from non-subscribers</h3><p>Non-subscribers generate about 73% of total revenue despite similar average purchase values.</p></article>
+<article class="insight-card"><span class="accent-chip">CATEGORY</span><strong>44.7%</strong><h3>Clothing share of revenue</h3><p>Clothing contributes about 44.7% of the dataset's $233,081 total revenue.</p></article>
+</div></div></section>
+
+<section class="case-section case-section-soft"><div class="container"><div class="case-section-head"><span class="case-number">11</span><div><div class="section-eyebrow">BUSINESS RECOMMENDATIONS</div><h2>Translate the analysis into commercial actions.</h2></div></div>
+<div class="recommendation-grid">
+<article class="data-card"><span class="case-number">01</span><h3>Boost subscriptions</h3><p>Promote exclusive subscriber benefits to convert more of the existing customer base.</p></article>
+<article class="data-card"><span class="case-number">02</span><h3>Strengthen loyalty programs</h3><p>Reward repeat buyers and use the large Loyal segment as a base for retention and upsell initiatives.</p></article>
+<article class="data-card"><span class="case-number">03</span><h3>Review discount policy</h3><p>Balance discount-driven sales with margin control, especially for products with high discount rates.</p></article>
+<article class="data-card"><span class="case-number">04</span><h3>Target high-value segments</h3><p>Focus marketing attention on high-revenue age groups and customers associated with higher-value shipping behavior.</p></article>
+</div></div></section>
+
+<section class="case-section"><div class="container"><div class="case-section-head"><span class="case-number">12</span><div><div class="section-eyebrow">TOOLKIT</div><h2>From raw CSV to interactive business dashboard.</h2></div></div>
+<div class="stack-grid"><div class="data-card"><span class="signal-kicker">PYTHON</span><strong>Pandas · NumPy</strong><p>Exploration, missing-value treatment, standardization and feature engineering.</p></div><div class="data-card"><span class="signal-kicker">SQL</span><strong>Aggregations · CTEs · Windows</strong><p>Customer, product, revenue, subscription and segmentation analysis.</p></div><div class="data-card"><span class="signal-kicker">POWER BI</span><strong>Interactive dashboard</strong><p>KPI cards, filters and category/customer visual analysis.</p></div><div class="data-card"><span class="signal-kicker">DATA</span><strong>3,900 × 18</strong><p>Customer shopping transactions with demographic, purchase and behavioral fields.</p></div></div>
+</div></section>
+
+<section class="case-section case-section-dark"><div class="container"><div class="case-section-head"><span class="case-number">13</span><div class="light-head"><div class="section-eyebrow">PROJECT FILES</div><h2>The analysis is backed by reproducible project artifacts.</h2></div></div>
+<div class="case-actions"><a class="button button-primary" href="https://github.com/vasuarora210" target="_blank">GITHUB ↗</a><a class="button button-dark-outline" href="../index.html#selected-work">BACK TO SELECTED WORK</a></div>
+<div class="method-note"><strong>Project scope</strong><span>Python cleaning notebook · CSV dataset · SQL scripts · Power BI dashboard · project documentation.</span></div>
+</div></section>
+
+<section class="case-next"><div class="container case-next-inner"><div><span class="section-eyebrow">NEXT CASE STUDY</span><h2>CO₂ Emissions Analysis</h2><p>Move from customer behavior to geographic emissions analysis with Databricks and SQL.</p></div><a class="button button-primary" href="emissions-analysis.html">EXPLORE NEXT PROJECT →</a></div></section>
+</main>
+<footer class="case-footer"><div class="container"><span>© Vasu Arora</span><a href="../index.html">Back to portfolio ↑</a></div></footer>
+<div id="image-lightbox" class="image-lightbox" aria-hidden="true"><button class="lightbox-close" type="button" aria-label="Close dashboard preview">×</button><img id="lightbox-image" src="" alt=""></div>
+<script src="../js/main.js"></script><script src="../js/projects.js"></script>
+</body></html>
