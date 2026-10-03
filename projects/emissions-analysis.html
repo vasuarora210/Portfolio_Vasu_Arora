@@ -1,0 +1,1111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>CO₂ Emissions Analysis — Vasu Arora</title>
+  <meta
+    name="description"
+    content="CO₂ emissions analysis case study using Databricks SQL to examine geographic concentration, emissions per person, population and U.S. emissions patterns."
+  >
+
+  <link rel="stylesheet" href="../css/main.css">
+  <link rel="stylesheet" href="../css/responsive.css">
+  <link rel="stylesheet" href="../css/projects.css">
+</head>
+
+<body class="case-study-page emissions-case-study">
+
+<a class="skip-link" href="#main-content">Skip to content</a>
+<div id="scroll-progress" class="scroll-progress"></div>
+
+<header id="site-header" class="site-header">
+  <nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+    <div class="container nav-container">
+
+      <a class="site-logo" href="../index.html">
+        Vasu Arora<span class="logo-dot">.</span>
+      </a>
+
+      <div id="desktop-nav" class="desktop-nav">
+        <a class="nav-link" href="../index.html#about">About</a>
+        <a class="nav-link" href="../index.html#experience">Experience</a>
+        <a class="nav-link is-active" href="../index.html#selected-work">Work</a>
+        <a class="nav-link" href="../index.html#contact">Contact</a>
+      </div>
+
+      <div class="nav-actions">
+        <a
+          class="button button-small button-outline"
+          href="../resume/Vasu_Arora_Resume.pdf"
+          target="_blank"
+          rel="noopener"
+        >Resume</a>
+
+        <button
+          id="theme-toggle"
+          class="theme-toggle"
+          type="button"
+          aria-label="Toggle theme"
+        >
+          <span class="theme-icon theme-icon-light">☀</span>
+          <span class="theme-icon theme-icon-dark">☾</span>
+        </button>
+
+        <button
+          id="menu-toggle"
+          class="menu-toggle"
+          type="button"
+          aria-label="Open navigation"
+        >
+          <span class="menu-line"></span>
+          <span class="menu-line"></span>
+          <span class="menu-line"></span>
+        </button>
+      </div>
+    </div>
+
+    <div id="mobile-nav" class="mobile-nav" aria-hidden="true">
+      <a class="mobile-nav-link" href="../index.html#about">About</a>
+      <a class="mobile-nav-link" href="../index.html#experience">Experience</a>
+      <a class="mobile-nav-link" href="../index.html#selected-work">Work</a>
+      <a class="mobile-nav-link" href="../index.html#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<main id="main-content">
+
+  <!-- =====================================================
+       HERO
+       ===================================================== -->
+  <section class="case-hero">
+    <div class="container">
+
+      <div class="case-hero-top">
+        <a class="case-back" href="../index.html#selected-work">
+          ← Back to selected work
+        </a>
+        <span class="case-index">CASE STUDY / 03</span>
+      </div>
+
+      <div class="case-hero-grid">
+
+        <div>
+          <div class="section-eyebrow">
+            <span class="n"></span>
+            U.S. EMISSIONS / DATABRICKS
+          </div>
+
+          <h1 class="case-title">
+            Mapping where emissions concentrate across the United States.
+          </h1>
+
+          <p class="case-lead">
+            A Databricks SQL analysis of emissions data collected by the
+            Environmental Protection Agency in 2025, examining geographic
+            concentration, emissions per person, population and the highest
+            emitting regions.
+          </p>
+
+          <div class="case-tags">
+            <span>DATABRICKS</span>
+            <span>SQL</span>
+            <span>DATA ANALYSIS</span>
+          </div>
+
+          <div class="case-actions">
+            <a class="button button-primary" href="#dashboard">
+              EXPLORE DASHBOARD ↓
+            </a>
+
+            <a
+              class="button button-secondary"
+              href="../index.html#selected-work"
+            >
+              VIEW ALL WORK
+            </a>
+          </div>
+        </div>
+
+        <div class="case-signal">
+          <div class="signal-kicker">ANALYSIS FLOW</div>
+
+          <div class="lifecycle-line">
+            <span>LOCATION</span>
+            <i>→</i>
+            <span>EMISSIONS</span>
+          </div>
+
+          <div class="lifecycle-line secondary">
+            <span>POPULATION</span>
+            <i>→</i>
+            <span>CONCENTRATION</span>
+          </div>
+
+          <div class="signal-note">
+            One analytical view connects geographic emissions,
+            population and per-person emissions.
+          </div>
+        </div>
+
+      </div>
+
+      <div class="kpi-rail">
+        <div class="kpi-cell">
+          <strong>51%</strong>
+          <span>TOP 10 STATES</span>
+        </div>
+
+        <div class="kpi-cell">
+          <strong>2025</strong>
+          <span>EPA DATA REFERENCE</span>
+        </div>
+
+        <div class="kpi-cell">
+          <strong>4</strong>
+          <span>DASHBOARD VIEWS</span>
+        </div>
+
+        <div class="kpi-cell">
+          <strong>SQL</strong>
+          <span>PRIMARY ANALYSIS</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       BUSINESS QUESTION
+       ===================================================== -->
+  <section class="case-section">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">01</span>
+
+        <div>
+          <div class="section-eyebrow">BUSINESS QUESTION</div>
+
+          <h2>
+            Where is emissions concentration highest, and how does it relate
+            to population?
+          </h2>
+        </div>
+      </div>
+
+      <div class="split-copy">
+
+        <div class="lead-copy">
+          <p>
+            The project turns a geographic emissions dataset into a set of
+            focused SQL analyses rather than treating emissions as a single
+            national number.
+          </p>
+
+          <p>
+            The analysis looks at total emissions by state and county,
+            emissions per person, and the relationship between population
+            and emissions per person.
+          </p>
+        </div>
+
+        <div class="copy-stack">
+
+          <div class="data-card">
+            <div class="data-card-top">
+              <span>01</span>
+              <strong>GEOGRAPHIC CONCENTRATION</strong>
+            </div>
+            <p>
+              Identify the states and county/state regions with the largest
+              total emissions.
+            </p>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-top">
+              <span>02</span>
+              <strong>PER-PERSON EMISSIONS</strong>
+            </div>
+            <p>
+              Calculate emissions per person using emissions divided by
+              population.
+            </p>
+          </div>
+
+          <div class="data-card">
+            <div class="data-card-top">
+              <span>03</span>
+              <strong>POPULATION RELATIONSHIP</strong>
+            </div>
+            <p>
+              Compare population against emissions per person to surface
+              geographic patterns.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       DATASET
+       ===================================================== -->
+  <section class="case-section case-section-soft">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">02</span>
+
+        <div>
+          <div class="section-eyebrow">DATASET & CONTEXT</div>
+
+          <h2>
+            A geographic emissions table becomes the analytical foundation.
+          </h2>
+        </div>
+      </div>
+
+      <div class="dataset-stats">
+
+        <div class="data-card data-card-main">
+          <span class="accent-chip">SOURCE CONTEXT</span>
+          <strong>EPA</strong>
+          <span>Environmental Protection Agency reference in the dashboard</span>
+        </div>
+
+        <div class="data-card">
+          <strong>2025</strong>
+          <span>data reference year shown in dashboard</span>
+        </div>
+
+        <div class="data-card">
+          <strong>LAT / LONG</strong>
+          <span>geographic coordinates used for mapping</span>
+        </div>
+
+        <div class="data-card">
+          <strong>CO₂e</strong>
+          <span>GHG emissions measured in metric tons of CO₂e</span>
+        </div>
+
+      </div>
+
+      <div class="data-model">
+
+        <div>
+          <span class="signal-kicker">GEOGRAPHIC FIELDS</span>
+          <p>
+            county_state_name · state_abbr · latitude · longitude
+          </p>
+        </div>
+
+        <div>
+          <span class="signal-kicker">ANALYTICAL FIELDS</span>
+          <p>
+            population · GHG emissions mtons CO2e · emissions per person
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       QUESTIONS
+       ===================================================== -->
+  <section class="case-section">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">03</span>
+
+        <div>
+          <div class="section-eyebrow">ANALYTICAL QUESTIONS</div>
+
+          <h2>
+            The SQL workflow answers four concrete questions.
+          </h2>
+        </div>
+      </div>
+
+      <div class="question-grid">
+
+        <article class="data-card">
+          <span class="case-number">01</span>
+          <h3>Where are emissions concentrated?</h3>
+          <p>
+            Aggregate emissions by state and rank the top ten states by
+            total emissions.
+          </p>
+        </article>
+
+        <article class="data-card">
+          <span class="case-number">02</span>
+          <h3>Which regions emit the most?</h3>
+          <p>
+            Rank county/state records by total emissions to surface the
+            highest-emitting regions.
+          </p>
+        </article>
+
+        <article class="data-card">
+          <span class="case-number">03</span>
+          <h3>What are emissions per person?</h3>
+          <p>
+            Divide cleaned GHG emissions by population and rank regions by
+            the resulting metric.
+          </p>
+        </article>
+
+        <article class="data-card">
+          <span class="case-number">04</span>
+          <h3>How does population relate to emissions?</h3>
+          <p>
+            Compare population with emissions per person using a scatter
+            visualization.
+          </p>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       SQL WORKFLOW
+       ===================================================== -->
+  <section class="case-section case-section-dark">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">04</span>
+
+        <div class="light-head">
+          <div class="section-eyebrow">DATABRICKS SQL</div>
+
+          <h2>
+            The analysis is built from small, reproducible SQL queries.
+          </h2>
+        </div>
+      </div>
+
+      <div class="workflow-grid">
+
+        <div class="data-card">
+          <span class="workflow-no">01</span>
+          <strong>MAP THE DATA</strong>
+          <p>
+            Select latitude and longitude alongside GHG emissions to create
+            the geographic emissions map.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="workflow-no">02</span>
+          <strong>CALCULATE PER PERSON</strong>
+          <p>
+            Clean the comma-formatted emissions field and divide emissions
+            by population.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="workflow-no">03</span>
+          <strong>GROUP BY STATE</strong>
+          <p>
+            Aggregate emissions by state abbreviation and order the result
+            to identify the top ten states.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="workflow-no">04</span>
+          <strong>RANK REGIONS</strong>
+          <p>
+            Order county/state records by total emissions to surface the
+            highest-emitting regions.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="code-strip">
+        <span>SQL PATTERNS</span>
+        <strong>CAST</strong>
+        <strong>REPLACE</strong>
+        <strong>SUM</strong>
+        <strong>GROUP BY</strong>
+        <strong>ORDER BY</strong>
+        <strong>LIMIT</strong>
+      </div>
+
+      <div class="sql-preview">
+<pre><code>SELECT state_abbr,
+  SUM(
+    CAST(
+      REPLACE(`GHG emissions mtons CO2e`, ',', '')
+      AS DOUBLE
+    )
+  ) AS Total_Emission
+FROM emissinon.default.emissions_data
+GROUP BY state_abbr
+ORDER BY Total_Emission DESC
+LIMIT 10;</code></pre>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       PER PERSON ANALYSIS
+       ===================================================== -->
+  <section class="case-section case-section-soft">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">05</span>
+
+        <div>
+          <div class="section-eyebrow">PER-PERSON ANALYSIS</div>
+
+          <h2>
+            Total emissions and emissions intensity answer different
+            questions.
+          </h2>
+        </div>
+      </div>
+
+      <div class="split-copy">
+
+        <div class="lead-copy">
+          <p>
+            The project calculates an emissions-per-person metric instead of
+            looking only at absolute emissions.
+          </p>
+
+          <p>
+            This creates a second lens for comparing regions: a place can
+            have a large total emissions value while its emissions per
+            person tell a different story.
+          </p>
+        </div>
+
+        <div class="data-card formula-card">
+          <span class="signal-kicker">CALCULATION</span>
+
+          <strong class="formula">
+            Emissions per person
+            =
+            GHG emissions ÷ population
+          </strong>
+
+          <p>
+            The SQL converts the comma-formatted emissions field to DOUBLE
+            before performing the calculation.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       CONCENTRATION FINDING
+       ===================================================== -->
+  <section class="case-section">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">06</span>
+
+        <div>
+          <div class="section-eyebrow">GEOGRAPHIC CONCENTRATION</div>
+
+          <h2>
+            The top ten states account for 51% of all emissions in the U.S.
+          </h2>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+
+        <article class="insight-card featured">
+          <span class="accent-chip">CONCENTRATION</span>
+          <strong>51%</strong>
+          <h3>Top ten states</h3>
+          <p>
+            The dashboard explicitly identifies the top ten states as
+            accounting for 51% of all emissions in the U.S.
+          </p>
+        </article>
+
+        <article class="insight-card">
+          <span class="accent-chip">STATE VIEW</span>
+          <strong>TOP 10</strong>
+          <h3>State aggregation</h3>
+          <p>
+            State totals are produced with SUM after cleaning the emissions
+            field and grouping by state abbreviation.
+          </p>
+        </article>
+
+        <article class="insight-card">
+          <span class="accent-chip">REGIONAL VIEW</span>
+          <strong>10</strong>
+          <h3>Highest-emitting regions</h3>
+          <p>
+            The dashboard ranks the ten county/state records with the
+            largest total emissions.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       TOP REGIONS
+       ===================================================== -->
+  <section class="case-section case-section-soft">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">07</span>
+
+        <div>
+          <div class="section-eyebrow">TOP EMITTING REGIONS</div>
+
+          <h2>
+            The regional ranking makes concentration visible at county/state
+            level.
+          </h2>
+        </div>
+      </div>
+
+      <div class="ranking-list">
+
+        <div class="ranking-row">
+          <span>01</span>
+          <strong>Maricopa County, AZ</strong>
+          <em>9.81M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>02</span>
+          <strong>Harris County, TX</strong>
+          <em>9.68M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>03</span>
+          <strong>Cook County, IL</strong>
+          <em>8.11M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>04</span>
+          <strong>Miami-Dade County, FL</strong>
+          <em>5.62M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>05</span>
+          <strong>Dallas County, TX</strong>
+          <em>5.43M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>06</span>
+          <strong>Los Angeles County, CA</strong>
+          <em>5.00M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>07</span>
+          <strong>Tarrant County, TX</strong>
+          <em>4.48M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>08</span>
+          <strong>Broward County, FL</strong>
+          <em>4.41M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>09</span>
+          <strong>Clark County, NV</strong>
+          <em>4.24M</em>
+        </div>
+
+        <div class="ranking-row">
+          <span>10</span>
+          <strong>Bexar County, TX</strong>
+          <em>3.82M</em>
+        </div>
+
+      </div>
+
+      <p class="method-note ranking-note">
+        <strong>Dashboard note</strong>
+        <span>
+          Values above reproduce the ten visible records from the supplied
+          dashboard screenshot and are presented in the same descending
+          order as the dashboard.
+        </span>
+      </p>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       DASHBOARD
+       ===================================================== -->
+  <section id="dashboard" class="case-section case-section-dark">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">08</span>
+
+        <div class="light-head">
+          <div class="section-eyebrow">DATABRICKS DASHBOARD</div>
+
+          <h2>
+            Four visual lenses turn the SQL analysis into one geographic
+            emissions story.
+          </h2>
+        </div>
+      </div>
+
+      <div class="dashboard-intro">
+
+        <div>
+          <p>
+            The supplied Databricks dashboard combines a continental U.S.
+            emissions map, population-versus-emissions scatter plot, state
+            concentration donut and top-region emissions ranking.
+          </p>
+        </div>
+
+        <div class="dashboard-meta">
+          <span>MAP</span>
+          <span>SCATTER</span>
+          <span>STATE MIX</span>
+          <span>TOP REGIONS</span>
+        </div>
+
+      </div>
+
+      <figure
+        class="dashboard-frame"
+        data-lightbox-src="../assets/projects/emissions-analysis/emissions-dashboard.png"
+      >
+        <img
+          src="../assets/projects/emissions-analysis/emissions-dashboard.png"
+          alt="United States Emissions Breakdown Databricks dashboard"
+          loading="lazy"
+        >
+
+        <figcaption class="dashboard-caption">
+          <span>United States Emissions Breakdown</span>
+          <span>Click to expand ↗</span>
+        </figcaption>
+      </figure>
+
+      <div class="dashboard-grid">
+
+        <article class="dashboard-stage">
+          <span class="signal-kicker">01 / GEOGRAPHY</span>
+          <h3>Emissions Per Continental U.S.</h3>
+          <p>
+            Latitude and longitude are plotted as a symbol map to show the
+            geographic distribution of emissions records.
+          </p>
+        </article>
+
+        <article class="dashboard-stage">
+          <span class="signal-kicker">02 / POPULATION</span>
+          <h3>Emissions vs Population</h3>
+          <p>
+            Population is compared with emissions per person, with the
+            dashboard describing the observed relationship as higher
+            population tending to have lower emissions per person.
+          </p>
+        </article>
+
+        <article class="dashboard-stage">
+          <span class="signal-kicker">03 / STATES</span>
+          <h3>Emission Percentage</h3>
+          <p>
+            The top ten states are visualized as a percentage mix, with 51%
+            of U.S. emissions attributed to those ten states.
+          </p>
+        </article>
+
+        <article class="dashboard-stage">
+          <span class="signal-kicker">04 / REGIONS</span>
+          <h3>Total Emissions by mTon of CO₂e</h3>
+          <p>
+            The highest-emitting county/state records are ranked in a
+            horizontal bar chart.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       KEY FINDINGS
+       ===================================================== -->
+  <section class="case-section">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">09</span>
+
+        <div>
+          <div class="section-eyebrow">KEY FINDINGS</div>
+
+          <h2>
+            The dashboard makes three patterns easier to see.
+          </h2>
+        </div>
+      </div>
+
+      <div class="insight-grid">
+
+        <article class="insight-card featured">
+          <span class="accent-chip">CONCENTRATION</span>
+          <strong>51%</strong>
+          <h3>Top-state concentration</h3>
+          <p>
+            The dashboard identifies the top ten states as responsible for
+            51% of all U.S. emissions represented in the analysis.
+          </p>
+        </article>
+
+        <article class="insight-card">
+          <span class="accent-chip">POPULATION</span>
+          <strong>PER PERSON</strong>
+          <h3>A different lens than total emissions</h3>
+          <p>
+            The per-person metric prevents the analysis from relying only
+            on absolute emissions and enables a population-normalized view.
+          </p>
+        </article>
+
+        <article class="insight-card">
+          <span class="accent-chip">GEOGRAPHY</span>
+          <strong>TOP 10</strong>
+          <h3>Regional concentration is uneven</h3>
+          <p>
+            The top-region ranking shows substantial variation in emissions
+            across county/state records.
+          </p>
+        </article>
+
+        <article class="insight-card">
+          <span class="accent-chip">VISUAL ANALYSIS</span>
+          <strong>4 VIEWS</strong>
+          <h3>Different questions need different views</h3>
+          <p>
+            Map, scatter, state composition and ranking views provide
+            complementary ways to interpret the same dataset.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       LIMITATIONS / INTERPRETATION
+       ===================================================== -->
+  <section class="case-section case-section-soft">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">10</span>
+
+        <div>
+          <div class="section-eyebrow">INTERPRETATION</div>
+
+          <h2>
+            The analysis separates what the data shows from what it does not
+            establish.
+          </h2>
+        </div>
+      </div>
+
+      <div class="question-grid">
+
+        <article class="data-card">
+          <span class="accent-chip">OBSERVATION</span>
+          <h3>Geographic concentration</h3>
+          <p>
+            The supplied dashboard shows concentration in the highest
+            emitting states and county/state records.
+          </p>
+        </article>
+
+        <article class="data-card">
+          <span class="accent-chip">METRIC</span>
+          <h3>Per-person comparison</h3>
+          <p>
+            Emissions per person is a calculated metric based on emissions
+            divided by population.
+          </p>
+        </article>
+
+        <article class="data-card">
+          <span class="accent-chip">CAUTION</span>
+          <h3>Correlation is not causation</h3>
+          <p>
+            The population-versus-emissions visualization describes a
+            relationship in the dataset; it does not by itself establish
+            why that relationship exists.
+          </p>
+        </article>
+
+        <article class="data-card">
+          <span class="accent-chip">SCOPE</span>
+          <h3>Dashboard scope</h3>
+          <p>
+            The supplied dashboard focuses on U.S. geographic emissions,
+            even though the README describes the broader project as global
+            CO₂ emissions analysis.
+          </p>
+        </article>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       TOOLKIT
+       ===================================================== -->
+  <section class="case-section">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">11</span>
+
+        <div>
+          <div class="section-eyebrow">TOOLKIT</div>
+
+          <h2>
+            A compact Databricks workflow from dataset to dashboard.
+          </h2>
+        </div>
+      </div>
+
+      <div class="stack-grid">
+
+        <div class="data-card">
+          <span class="signal-kicker">01</span>
+          <strong>Databricks</strong>
+          <p>
+            Workspace environment used to run the SQL analysis and build
+            the dashboard.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="signal-kicker">02</span>
+          <strong>SQL</strong>
+          <p>
+            Aggregation, ranking, type conversion and calculated metrics.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="signal-kicker">03</span>
+          <strong>Geospatial analysis</strong>
+          <p>
+            Latitude and longitude fields power the continental U.S.
+            emissions map.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="signal-kicker">04</span>
+          <strong>Dashboard design</strong>
+          <p>
+            Map, scatter plot, donut chart and horizontal ranking bring
+            different analytical questions into one view.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       PROJECT FILES
+       ===================================================== -->
+  <section class="case-section case-section-dark">
+    <div class="container">
+
+      <div class="case-section-head">
+        <span class="case-number">12</span>
+
+        <div class="light-head">
+          <div class="section-eyebrow">PROJECT ARTIFACTS</div>
+
+          <h2>
+            The analysis is backed by reproducible SQL notebooks and a
+            dashboard definition.
+          </h2>
+        </div>
+      </div>
+
+      <div class="artifact-grid">
+
+        <div class="data-card">
+          <span class="signal-kicker">01</span>
+          <strong>Emission per person</strong>
+          <p>
+            SQL notebook calculating emissions per person and ranking the
+            result.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="signal-kicker">02</span>
+          <strong>Emission by state</strong>
+          <p>
+            SQL notebook aggregating total emissions by state and limiting
+            the output to the top ten.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="signal-kicker">03</span>
+          <strong>Emission by mTon CO₂e</strong>
+          <p>
+            SQL notebook ranking the highest-emitting county/state records.
+          </p>
+        </div>
+
+        <div class="data-card">
+          <span class="signal-kicker">04</span>
+          <strong>Dashboard definition</strong>
+          <p>
+            Databricks Lakeview dashboard JSON containing the datasets,
+            queries and visual specifications.
+          </p>
+        </div>
+
+      </div>
+
+      <div class="case-footer-actions">
+        <a
+          class="button button-primary"
+          href="https://github.com/vasuarora210"
+          target="_blank"
+          rel="noopener"
+        >
+          GITHUB ↗
+        </a>
+
+        <a
+          class="button button-dark-outline"
+          href="../index.html#selected-work"
+        >
+          BACK TO SELECTED WORK
+        </a>
+      </div>
+
+      <div class="method-note">
+        <strong>Project scope</strong>
+        <span>
+          Databricks SQL notebooks · emissions dataset · dashboard JSON ·
+          supplied dashboard screenshot.
+        </span>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- =====================================================
+       NEXT PROJECT
+       ===================================================== -->
+  <section class="case-next">
+    <div class="container case-next-inner">
+
+      <div>
+        <span class="section-eyebrow">BACK TO WORK</span>
+
+        <h2>
+          Explore the other analytics case studies.
+        </h2>
+
+        <p>
+          Continue through the portfolio's SaaS product analytics and
+          e-commerce customer analytics projects.
+        </p>
+      </div>
+
+      <a
+        class="button button-primary"
+        href="../index.html#selected-work"
+      >
+        VIEW ALL WORK →
+      </a>
+
+    </div>
+  </section>
+
+</main>
+
+<footer class="case-footer">
+  <div class="container">
+    <span>© Vasu Arora</span>
+    <a href="../index.html">Back to portfolio ↑</a>
+  </div>
+</footer>
+
+<div
+  id="image-lightbox"
+  class="image-lightbox"
+  aria-hidden="true"
+>
+  <button
+    class="lightbox-close"
+    type="button"
+    aria-label="Close dashboard preview"
+  >×</button>
+
+  <img id="lightbox-image" src="" alt="">
+</div>
+
+<script src="../js/main.js"></script>
+<script src="../js/projects.js"></script>
+
+</body>
+</html>
